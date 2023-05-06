@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+
+header h1{
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+#mainInfo {
+    display: flex;
+    height: 100%;
+}
+
+/*This is for the aside*/
+
+aside {
+    flex: 20%;
+}
+
+aside h2 {
+    padding: 10px;
+}
+
+aside form {
+    padding: 10px;
+}
+
+aside input {
+    background-color:white;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#searchButton {
+    width: 100%;
+    background-color: darkcyan;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#underline{
+    background-color: darkcyan;
+    width: 93%;
+    margin: auto;
+    margin-top: 10px;
+    height: 2px;
+}
+
+#favorites{
+    padding: 10px;
+}
+
+.favorite{
+    width: 100%;
+    background-color: grey;
+    border: none;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/*This is for the main content*/
+
+main {
+    flex: 80%;
+    background-color: darkcyan;
+    height: 100%;
+}
+
+#current {
+    margin: 10px;
+    background-color: darkcyan;
+    border: solid 2px black;
+    padding: 10px;
+    height: 200px;
+}
+
+#city{
+    background-color: darkcyan;
+    color: white;
+    padding: 10px;
+}
+
+#temp{
+    background-color: darkcyan;
+    color: white;
+    padding: 10px;
+}
+
+#wind{
+    background-color: darkcyan;
+    color: white;
+    padding: 10px;
+}
+
+#humid{
+    background-color: darkcyan;
+    color: white;
+    padding: 10px;
+}
+
+main h2 {
+    background-color: darkcyan;
+    padding: 10px;
+}
+
+#fiveDay {
+    background-color: darkcyan;
+    display: flex;
+}
+
+.days{
+    background-color: rgb(14, 90, 90);
+    flex: 20%;
+    margin: 10px;
+    height: 300px;
+}
+
+.day{
+    background-color: rgb(14, 90, 90);
+    padding: 10px;
+    color: white;
+}
