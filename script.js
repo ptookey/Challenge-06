@@ -66,37 +66,37 @@ function getWeatherAPI (requestWeatherUrl){
             current.append(getWeatherIcon(0));
             city.text(data.city.name + " - " + dateFormat(0));
             temp.text("Temp: " + data.list[0].main.temp + " F");
-            wind.text("Wind Speed: " + data.list[0].wind.speed + " mph");
+            wind.text("Wind: " + data.list[0].wind.speed + " mph");
             humid.text("Humidity: " + data.list[0].main.humidity + "%");
 
             day1.append(getWeatherIcon(8))
             city1.text(dateFormat(8));
             temp1.text("Temp: " + data.list[8].main.temp + " F");
-            wind1.text("Wind Speed: " + data.list[8].wind.speed + " mph");
+            wind1.text("Wind: " + data.list[8].wind.speed + " mph");
             humid1.text("Humidity: " + data.list[8].main.humidity + "%");
 
             day2.append(getWeatherIcon(16))
             city2.text(dateFormat(16));
             temp2.text("Temp: " + data.list[16].main.temp + " F");
-            wind2.text("Wind Speed: " + data.list[16].wind.speed + " mph");
+            wind2.text("Wind: " + data.list[16].wind.speed + " mph");
             humid2.text("Humidity: " + data.list[16].main.humidity + "%");
 
             day3.append(getWeatherIcon(24))
             city3.text(dateFormat(24));
             temp3.text("Temp: " + data.list[24].main.temp + " F");
-            wind3.text("Wind Speed: " + data.list[24].wind.speed + " mph");
+            wind3.text("Wind: " + data.list[24].wind.speed + " mph");
             humid3.text("Humidity: " + data.list[24].main.humidity + "%");
 
             day4.append(getWeatherIcon(32))
             city4.text(dateFormat(32));
             temp4.text("Temp: " + data.list[32].main.temp + " F");
-            wind4.text("Wind Speed: " + data.list[32].wind.speed + " mph");
+            wind4.text("Wind: " + data.list[32].wind.speed + " mph");
             humid4.text("Humidity: " + data.list[32].main.humidity + "%");
 
             day5.append(getWeatherIcon(39))
             city5.text(dateFormat(39));
             temp5.text("Temp: " + data.list[39].main.temp + " F");
-            wind5.text("Wind Speed: " + data.list[39].wind.speed + " mph");
+            wind5.text("Wind: " + data.list[39].wind.speed + " mph");
             humid5.text("Humidity: " + data.list[39].main.humidity + "%");
 
             var a = $('.history').text();
