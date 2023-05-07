@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Weather Search</title>
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
@@ -11,18 +12,14 @@
             <aside>
                 <div id="searchSection">
                 <h2>Search for a City:</h2>
-                    <form id="search-form">
+                    <div id="search-form">
                         <label for="search-query"></label>
                         <input type="text" id="search-query" name="q"><br>
                         <button id="searchButton">Search</button>
-                    </form>
+                    </div>
                 </div>
                 <div id="underline"></div>
                 <div id="favorites">
-                    <button class="favorite">Atlanta</button>
-                    <button class="favorite">Miami</button>
-                    <button class="favorite">New York City</button>
-
                 </div>
             </aside>
             <main>
@@ -32,33 +29,33 @@
                     <h3 id="wind">Wind:</h3>
                     <h3 id="humid">Humidity:</h3>
                 </div>
-                    <h2>Five Day Forecast</h2>
+                    <h2 id="fiveDayHeader">Five Day Forecast</h2>
                 <div id="fiveDay">
-                    <div class="days">
+                    <div class="days" id="day1">
                         <h2 class="day" id="city1">(M/DD/YYYY) Weather Emoji</h2>
                         <h3 class="day" id="temp1">Temp:</h3>
                         <h3 class="day" id="wind1">Wind:</h3>
                         <h3 class="day" id="humid1">Humidity:</h3>
                     </div>
-                    <div class="days">
+                    <div class="days" id="day2">
                         <h2 class="day" id="city2">(M/DD/YYYY) Weather Emoji</h2>
                         <h3 class="day" id="temp2">Temp:</h3>
                         <h3 class="day" id="wind2">Wind:</h3>
                         <h3 class="day" id="humid2">Humidity:</h3>
                     </div>
-                    <div class="days">
+                    <div class="days" id="day3">
                         <h2 class="day" id="city3">(M/DD/YYYY) Weather Emoji</h2>
                         <h3 class="day" id="temp3">Temp:</h3>
                         <h3 class="day" id="wind3">Wind:</h3>
                         <h3 class="day" id="humid3">Humidity:</h3>
                     </div>
-                    <div class="days">
+                    <div class="days" id="day4">
                         <h2 class="day" id="city4">(M/DD/YYYY) Weather Emoji</h2>
                         <h3 class="day" id="temp4">Temp:</h3>
                         <h3 class="day" id="wind4">Wind:</h3>
                         <h3 class="day" id="humid4">Humidity:</h3>
                     </div>
-                    <div class="days">
+                    <div class="days" id="day5">
                         <h2 class="day" id="city5">(M/DD/YYYY) Weather Emoji</h2>
                         <h3 class="day" id="temp5">Temp:</h3>
                         <h3 class="day" id="wind5">Wind:</h3>
@@ -68,5 +65,13 @@
 
             </main>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script 
+        src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+        crossorigin="anonymous"
+        ></script>
+        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="" id="icon">
+        <script src="script.js"></script>
     </body>
 </html>
