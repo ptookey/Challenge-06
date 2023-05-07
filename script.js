@@ -51,6 +51,8 @@ function getWeatherAPI (requestWeatherUrl){
         .then(function (data) {
             console.log(data)
 
+            $('img').remove();
+
             function dateFormat(x) {
                 var currentDayForecast_DT=data.list[x].dt_txt
                 return dayjs(currentDayForecast_DT).format("MM/DD/YYYY")
