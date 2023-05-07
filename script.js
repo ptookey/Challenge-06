@@ -139,7 +139,8 @@ function userSearch() {
     localStorage.setItem('city',cityName);
 }
 
-searchButton.on('click', function (){
+searchButton.on('click', function (event){
+    event.preventDefault();
     userSearch();
     var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
     getApi(requestGeocodeUrl);
