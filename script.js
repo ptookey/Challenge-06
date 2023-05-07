@@ -135,6 +135,7 @@ function getApi(requestUrl) {
 
 function userSearch() {
     cityName = $(search).val()
+    $(search).val("")
     localStorage.setItem('city',cityName);
 }
 
