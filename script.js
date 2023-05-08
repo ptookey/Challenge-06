@@ -52,7 +52,7 @@ function getWeatherAPI (requestWeatherUrl){
                 favorites.prepend(button);
             }
         })
-  };
+};
 
 function getApi(requestUrl) {
     fetch(requestUrl)
@@ -65,24 +65,28 @@ function getApi(requestUrl) {
         var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geoLocationLat}&lon=${geoLocationLon}&exclude=hourly,daily&units=imperial&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
         getWeatherAPI(requestWeatherUrl)
       })
-    };;
-
+};
 
 function userSearch() {
     cityName = $(search).val()
     $(search).val("")
-    localStorage.setItem('city',cityName);
-}
+};
 
 searchButton.on('click', function (event){
     event.preventDefault();
     userSearch();
     var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
     getApi(requestGeocodeUrl);
-})
+});
 
 favorites.on('click','.history', function(){
     cityName = $(this).text();
     var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
     getApi(requestGeocodeUrl);
-})
+
+    $(this).remove();
+
+    var button = $("<button>", { class:"history"});
+    button.text(cityName);
+    favorites.prepend(button);
+});
