@@ -50,6 +50,9 @@ function getWeatherAPI (requestWeatherUrl){
                 var button = $("<button>", { class:"history"});
                 button.text(data.city.name);
                 favorites.prepend(button);
+                if ($("button").length>11){
+                    favorites.find("button:last").remove();
+                }
             }
         })
 };
@@ -89,4 +92,8 @@ favorites.on('click','.history', function(){
     var button = $("<button>", { class:"history"});
     button.text(cityName);
     favorites.prepend(button);
+
+    if ($("button").length>11){
+        favorites.find("button:last").remove();
+    }
 });
