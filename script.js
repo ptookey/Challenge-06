@@ -1,41 +1,8 @@
-var city=$("#city");
-var temp=$("#temp");
-var wind=$("#wind");
-var humid=$("#humid");
-
-var city1=$("#city1");
-var temp1=$("#temp1");
-var wind1=$("#wind1");
-var humid1=$("#humid1");
-
-var city2=$("#city2");
-var temp2=$("#temp2");
-var wind2=$("#wind2");
-var humid2=$("#humid2");
-
-var city3=$("#city3");
-var temp3=$("#temp3");
-var wind3=$("#wind3");
-var humid3=$("#humid3");
-
-var city4=$("#city4");
-var temp4=$("#temp4");
-var wind4=$("#wind4");
-var humid4=$("#humid4");
-
-var city5=$("#city5");
-var temp5=$("#temp5");
-var wind5=$("#wind5");
-var humid5=$("#humid5");
-
-var current=$("#current");
-
-var day1=$("#day1");
-var day2=$("#day2");
-var day3=$("#day3");
-var day4=$("#day4");
-var day5=$("#day5");
-
+var days=[$("#current"),$("#day1"),$("#day2"),$("#day3"),$("#day4"),$("#day5")]
+var citys=[$("#city"),$("#city1"),$("#city2"),$("#city3"),$("#city4"),$("#city5")]
+var temps=[$("#temp"),$("#temp1"),$("#temp2"),$("#temp3"),$("#temp4"),$("#temp5")];
+var winds=[$("#wind"),$("#wind1"),$("#wind2"),$("#wind3"),$("#wind4"),$("#wind5")];
+var humids=[$("#humid"),$("#humid1"),$("#humid2"),$("#humid3"),$("#humid4"),$("#humid5")];
 
 var search=$("#search-query");
 var searchButton=$("#searchButton");
@@ -65,41 +32,21 @@ function getWeatherAPI (requestWeatherUrl){
                 return img
             }
 
-            current.append(getWeatherIcon(0));
-            city.text(data.city.name + " - " + dateFormat(0));
-            temp.text("Temp: " + data.list[0].main.temp + " F");
-            wind.text("Wind: " + data.list[0].wind.speed + " mph");
-            humid.text("Humidity: " + data.list[0].main.humidity + "%");
 
-            day1.append(getWeatherIcon(8))
-            city1.text(dateFormat(8));
-            temp1.text("Temp: " + data.list[8].main.temp + " F");
-            wind1.text("Wind: " + data.list[8].wind.speed + " mph");
-            humid1.text("Humidity: " + data.list[8].main.humidity + "%");
+            days[0].append(getWeatherIcon(0));
+            citys[0].text(data.city.name + " - " + dateFormat(0));
+            temps[0].text("Temp: " + data.list[0].main.temp + " F");
+            winds[0].text("Wind: " + data.list[0].wind.speed + " mph");
+            humids[0].text("Humidity: " + data.list[0].main.humidity + "%");
 
-            day2.append(getWeatherIcon(16))
-            city2.text(dateFormat(16));
-            temp2.text("Temp: " + data.list[16].main.temp + " F");
-            wind2.text("Wind: " + data.list[16].wind.speed + " mph");
-            humid2.text("Humidity: " + data.list[16].main.humidity + "%");
 
-            day3.append(getWeatherIcon(24))
-            city3.text(dateFormat(24));
-            temp3.text("Temp: " + data.list[24].main.temp + " F");
-            wind3.text("Wind: " + data.list[24].wind.speed + " mph");
-            humid3.text("Humidity: " + data.list[24].main.humidity + "%");
-
-            day4.append(getWeatherIcon(32))
-            city4.text(dateFormat(32));
-            temp4.text("Temp: " + data.list[32].main.temp + " F");
-            wind4.text("Wind: " + data.list[32].wind.speed + " mph");
-            humid4.text("Humidity: " + data.list[32].main.humidity + "%");
-
-            day5.append(getWeatherIcon(39))
-            city5.text(dateFormat(39));
-            temp5.text("Temp: " + data.list[39].main.temp + " F");
-            wind5.text("Wind: " + data.list[39].wind.speed + " mph");
-            humid5.text("Humidity: " + data.list[39].main.humidity + "%");
+            for (var i = 1, x = 1; i<6; i++, x=x+8){
+                days[i].append(getWeatherIcon(x));
+                citys[i].text(dateFormat(x));
+                temps[i].text("Temp: " + data.list[x].main.temp + " F");
+                winds[i].text("Wind: " + data.list[x].wind.speed + " mph");
+                humids[i].text("Humidity: " + data.list[x].main.humidity + "%");
+            }
 
             var a = $('.history').text();
             var b = data.city.name;
@@ -110,7 +57,7 @@ function getWeatherAPI (requestWeatherUrl){
             } else {
             var button = $("<button>", { class:"history"});
             button.text(data.city.name);
-            favorites.append(button);
+            favorites.prepend(button);
             }
 
         })
