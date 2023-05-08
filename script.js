@@ -10,14 +10,10 @@ var favorites=$("#favorites");
 
 function getWeatherAPI (requestWeatherUrl){
     fetch(requestWeatherUrl)
-        .then(function (response)
-        {
-          console.log(response.status);
+        .then(function (response){
           return response.json();
         })
         .then(function (data) {
-            console.log(data)
-
             $('img').remove();
 
             function dateFormat(x) {
@@ -27,11 +23,9 @@ function getWeatherAPI (requestWeatherUrl){
 
             function getWeatherIcon(x) {
                 var currentDayForecast_Icon = data.list[x].weather[0].icon;
-                var img = $('<img>',
-                { src: `https://openweathermap.org/img/wn/${currentDayForecast_Icon}@2x.png`})
+                var img = $('<img>',{ src: `https://openweathermap.org/img/wn/${currentDayForecast_Icon}@2x.png`})
                 return img
             }
-
 
             days[0].append(getWeatherIcon(0));
             citys[0].text(data.city.name + " - " + dateFormat(0));
@@ -39,8 +33,7 @@ function getWeatherAPI (requestWeatherUrl){
             winds[0].text("Wind: " + data.list[0].wind.speed + " mph");
             humids[0].text("Humidity: " + data.list[0].main.humidity + "%");
 
-
-            for (var i = 1, x = 1; i<6; i++, x=x+8){
+            for (var i = 1, x = 6; i<6; i++, x=x+8){
                 days[i].append(getWeatherIcon(x));
                 citys[i].text(dateFormat(x));
                 temps[i].text("Temp: " + data.list[x].main.temp + " F");
@@ -52,32 +45,27 @@ function getWeatherAPI (requestWeatherUrl){
             var b = data.city.name;
 
             if (a.includes(b)){
-                console.log("hello")
                 return
             } else {
-            var button = $("<button>", { class:"history"});
-            button.text(data.city.name);
-            favorites.prepend(button);
+                var button = $("<button>", { class:"history"});
+                button.text(data.city.name);
+                favorites.prepend(button);
             }
-
         })
-  }
+  };
 
 function getApi(requestUrl) {
     fetch(requestUrl)
-      .then(function (response)
-      {
-        console.log(response.status);
+      .then(function (response) {
         return response.json();
       })
-      .then(function (data)
-      {
+      .then(function (data) {
         var geoLocationLat=data.city.coord.lat
         var geoLocationLon=data.city.coord.lon
         var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geoLocationLat}&lon=${geoLocationLon}&exclude=hourly,daily&units=imperial&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
         getWeatherAPI(requestWeatherUrl)
-      }
-      )};
+      })
+    };;
 
 
 function userSearch() {
@@ -95,7 +83,6 @@ searchButton.on('click', function (event){
 
 favorites.on('click','.history', function(){
     cityName = $(this).text();
-    console.log($(this).text());
     var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=71ab6dae80d4e4ec7fa98ea5618e8732`;
     getApi(requestGeocodeUrl);
 })
